@@ -33,7 +33,6 @@ RUN apt-get update && \
         php${IMAGE_PHP_VERSION}-gd \
         php${IMAGE_PHP_VERSION}-intl \
         php${IMAGE_PHP_VERSION}-mcrypt \
-        php${IMAGE_PHP_VERSION}-memcache \
         php${IMAGE_PHP_VERSION}-sqlite \
         php${IMAGE_PHP_VERSION}-tidy \
         php${IMAGE_PHP_VERSION}-xmlrpc \
@@ -44,6 +43,7 @@ RUN apt-get update && \
         pwgen \
         php${IMAGE_PHP_VERSION}-cli \
         curl && \
+    apt-get -y install php-memcached \
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
     apt-get clean && \
