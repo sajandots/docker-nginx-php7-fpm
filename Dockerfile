@@ -42,8 +42,7 @@ RUN apt-get update && \
         php${IMAGE_PHP_VERSION}-ldap \
         pwgen \
         php${IMAGE_PHP_VERSION}-cli \
-        curl && \
-    apt-get -y install php-memcached \
+        curl && \    
     apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
     apt-get clean && \
@@ -54,7 +53,7 @@ RUN apt-get update && \
     rm -rf /usr/share/man/?? && \
     rm -rf /usr/share/man/??_* && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
+RUN apt-get -y install php-memcached 
 RUN mkdir /opt/lua && \
     git clone https://github.com/knyar/nginx-lua-prometheus.git /tmp/lua-prom && \
     cp /tmp/lua-prom/prometheus.lua /opt/lua/ && \
