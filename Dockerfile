@@ -43,7 +43,8 @@ RUN apt-get update && \
         pwgen \
         php${IMAGE_PHP_VERSION}-cli \
         curl 
-RUN apt-get install -y php-memcached         
+RUN apt-get install -y php-memcached      
+RUN apt-get install -y php-mbstring 
 RUN apt-get remove --purge -y software-properties-common && \
     apt-get autoremove -y && \
     apt-get clean && \
